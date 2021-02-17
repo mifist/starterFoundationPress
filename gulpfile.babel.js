@@ -225,7 +225,7 @@ function archive() {
 }
 
 // PHP Code Sniffer task
-gulp.task('phpcs', function() {
+/*gulp.task('phpcs', function() {
   return gulp.src(PATHS.phpcs)
       // Validate files using PHP Code Sniffer
       .pipe($.phpcs({
@@ -236,7 +236,7 @@ gulp.task('phpcs', function() {
       }))
       // Log all problems that was found
       .pipe($.phpcs.reporter('log'));
-});
+});*/
 
 
 // Start BrowserSync to preview the site in

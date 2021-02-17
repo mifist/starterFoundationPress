@@ -15,13 +15,7 @@
     "start": "gulp",
     "dev": "gulp build --dev",
     "build": "gulp build --production",
-    "package": "gulp package --production",
-    "phpcs": "gulp phpcs",
-    
-    "build2": "cross-env NODE_ENV=production grunt build",
-    "dev2": "cross-env NODE_ENV=development grunt",
-    "make-pot": "wp i18n make-pot . languages/FoundationPress.pot --domain=fp_theme",
-    "release": "release-it"
+    "package": "gulp package --production"
   },
   "keywords": [
     "FoundationPress",
