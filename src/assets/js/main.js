@@ -1,20 +1,12 @@
-/* eslint-disable import/first */
-/* eslint-disable no-underscore-dangle, global-require */
-/* uncomment if babel polyfills are needed.
-if (
-	(typeof window !== 'undefined' && !window._babelPolyfill) ||
-	(typeof global !== 'undefined' && !global._babelPolyfill)
-) {
-	require('@babel/polyfill');
-}
-*/
-/* eslint-enable no-underscore-dangle, global-require */
+"use strict";
+import $ from 'jquery';
+window.$ = $;
 
-import './lib/foundation';
+import Foundation from './lib/foundation';
+$(document).foundation();
 
 // helper
 import './helper/exit-intent-reveal';
-
 // components
 import './components/iconlist';
 
@@ -22,5 +14,5 @@ import './components/iconlist';
 // replacing with <svg> tags, after importing all components.
 import './lib/FontAwesome';
 
-// because jQuery is included with webpack.ProvidePlugin we can
-// just use jQuery and $ variables without importing it again.
+// other
+import './components/custom';

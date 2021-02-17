@@ -10,13 +10,16 @@
 }
 
 // Site title
-.site-desktop-title a {
-	font-weight: 700;
-	display: inline-block;
-	img {
-		width: 100%;
-		height: auto;
-		display: block;
+.site-desktop-title {
+	max-width: 200px;
+	a {
+		font-weight: 700;
+		display: inline-block;
+		img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
 	}
 }
 

@@ -1,6 +1,7 @@
 // inspired by https://github.com/vue-foundation/vue-foundation/blob/master/src/foundation.js
 // jQuery is included with webpack.ProvidePlugin
 // Foundation core and utils - Best to import all of these
+import $ from 'jquery';
 import { Foundation } from 'foundation-sites/js/foundation.core';
 import {
 	rtl,

@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 function addIconlistIcons() {
 	$('[data-iconlist]').each((i, list) => {
 		const $list = $(list);
