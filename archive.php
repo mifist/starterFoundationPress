@@ -33,13 +33,13 @@ get_header(); ?>
 
 			/* Display navigation to next/previous pages when applicable */
 
-			if ( function_exists( 'foundationpress_pagination' ) ) :
-				foundationpress_pagination();
+			if ( function_exists( 'fp_pagination' ) ) :
+				fp_pagination();
 			elseif ( is_paged() ) :
 				?>
 				<nav id="post-nav">
-					<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
-					<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
+					<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', FP_TEXTDOMAIN ) ); ?></div>
+					<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', FP_TEXTDOMAIN ) ); ?></div>
 				</nav>
 			<?php endif; ?>
 		</main>

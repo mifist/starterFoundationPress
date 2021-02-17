@@ -19,9 +19,9 @@ class Block_Shared_Content extends Block {
 			acf_register_block_type(
 				[
 					'name'            => self::get_name(),
-					'title'           => __( 'Shared Content', 'foundationpress' ),
+					'title'           => __( 'Shared Content', FP_TEXTDOMAIN ),
 					'render_template' => 'template-parts/blocks/shared-content.php',
-					'category'        => 'foundationpress',
+					'category'        => 'fp_theme',
 					'icon'            => 'welcome-add-page',
 					'keywords'        => [ 'shared', 'content' ],
 					'supports'        => [

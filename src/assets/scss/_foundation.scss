@@ -1,6 +1,7 @@
 // ~ links to the node_modules folder.
-@import '~foundation-sites/scss/foundation';
-@import '~motion-ui/motion-ui';
+//@import '~foundation-sites/scss/foundation';
+//@import '~motion-ui/motion-ui';
+@import "./node_modules/foundation-sites/scss/foundation";
 
 @include foundation-global-styles;
 //@include foundation-grid;

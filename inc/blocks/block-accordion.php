@@ -16,9 +16,9 @@ class Block_Accordion extends Block {
 		acf_register_block_type(
 			[
 				'name'            => self::get_name(),
-				'title'           => __( 'Accordion', 'foundationpress' ),
+				'title'           => __( 'Accordion', FP_TEXTDOMAIN ),
 				'render_template' => 'template-parts/blocks/accordion.php',
-				'category'        => 'foundationpress',
+				'category'        => 'fp_theme',
 				'icon'            => 'editor-help',
 				'keywords'        => [ 'accordion', 'faq', 'akkordion' ],
 				'supports'        => [

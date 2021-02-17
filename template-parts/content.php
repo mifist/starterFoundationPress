@@ -19,17 +19,17 @@
 		the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 	}
 	?>
-		<?php foundationpress_entry_meta(); ?>
+		<?php fp_entry_meta(); ?>
 	</header>
 	<div class="entry-content">
 		<?php the_content(); ?>
-		<?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php edit_post_link( __( '(Edit)', FP_TEXTDOMAIN ), '<span class="edit-link">', '</span>' ); ?>
 	</div>
 	<footer>
 		<?php
 		wp_link_pages(
 			[
-				'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ),
+				'before' => '<nav id="page-nav"><p>' . __( 'Pages:', FP_TEXTDOMAIN ),
 				'after'  => '</p></nav>',
 			]
 		);

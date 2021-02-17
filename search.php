@@ -13,7 +13,7 @@ get_header(); ?>
 		<main id="search-results" class="main-content main-content--with-sidebar">
 			<header>
 				<h1 class="entry-title">
-					<?php esc_html_e( 'Search Results for', 'foundationpress' ); ?> "<?php echo get_search_query(); ?>"
+					<?php esc_html_e( 'Search Results for', FP_TEXTDOMAIN ); ?> "<?php echo get_search_query(); ?>"
 				</h1>
 			</header>
 
@@ -32,8 +32,8 @@ get_header(); ?>
 			elseif ( is_paged() ) :
 				?>
 				<nav id="post-nav">
-					<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
-					<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
+					<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', FP_TEXTDOMAIN ) ); ?></div>
+					<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', FP_TEXTDOMAIN) ); ?></div>
 				</nav>
 			<?php endif; ?>
 		</main>

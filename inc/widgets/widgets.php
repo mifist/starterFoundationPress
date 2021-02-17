@@ -1,15 +1,11 @@
 <?php
-//add_action( 'widgets_init', 'ic_register_widget' );
-function ic_register_widget() {
-	register_widget( 'ICBreadcrumbsWidget' );
-	register_widget( 'ICReviewsSliderWidget' );
-	register_widget( 'ICLatestNewsSliderWidget' );
-	register_widget( 'ICCompaniesListWidget' );
-	register_widget( 'ICPostsTabsWidget' );
-	register_widget( 'ICBigNewsWidget' );
-	register_widget( 'ICAllNewsWidget' );
-	register_widget( 'ICCategoriesTabsWidget' );
-	register_widget( 'ICPostActionsWidget' );
-}
+// Register custom widgets point
+if ( !function_exists( 'fp_register_widget' ) ) :
+	//add_action( 'widgets_init', 'fp_register_widget' );
+	function fp_register_widget() {
+		register_widget( 'ICReviewsSliderWidget' );
+	}
+endif;
+
 
 

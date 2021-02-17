@@ -1,5 +1,5 @@
 {
-  "name": "starterFoundationPress",
+  "name": "@mifist/starterfoundationpress",
   "title": "starterFoundationPress",
   "version": "1.10.7",
   "description": "FoundationPress is a WordPress starter theme based on Foundation 6 by Zurb (forked from https://github.com/olefredrik/FoundationPress and https://github.com/MEDIADUDES/FoundationPress.git)",
@@ -16,7 +16,12 @@
     "dev": "gulp build --dev",
     "build": "gulp build --production",
     "package": "gulp package --production",
-    "phpcs": "gulp phpcs"
+    "phpcs": "gulp phpcs",
+    
+    "build2": "cross-env NODE_ENV=production grunt build",
+    "dev2": "cross-env NODE_ENV=development grunt",
+    "make-pot": "wp i18n make-pot . languages/FoundationPress.pot --domain=fp_theme",
+    "release": "release-it"
   },
   "keywords": [
     "FoundationPress",
@@ -79,16 +84,16 @@
     "minimatch": "^3.0.2",
     "rimraf": "^3.0.2",
     "vinyl-named": "^1.1.0",
-    "webpack": "^5.3.2",
-    "webpack-stream": "^6.1.0",
-    "copy-webpack-plugin": "6.2.1",
+    "webpack": "^5.22.0",
+    "webpack-stream": "^6.1.2",
+    "copy-webpack-plugin": "6.4.1",
     "yargs": "^16.1.0",
     "date-format-helper": "^0.0.1",
     "@googlemaps/markerclustererplus": "^1.0.3"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mifist/diviCreativeAgency.git\n"
+    "url": "https://github.com/mifist/diviCreativeAgency.git"
   },
   "bugs": {
     "url": " https://github.com/mifist/diviCreativeAgency/issues"

@@ -2,9 +2,6 @@
 /**
  * Configure responsive images sizes
  *
- * @package WordPress
- * @subpackage FoundationPress
- * @since FoundationPress 2.6.0
  */
 
 // Add featured image sizes
@@ -27,18 +24,18 @@ add_image_size( 'fp-xlarge', 1920 );
  *
  * @param array $sizes existing sizes.
  */
-function foundationpress_custom_sizes( $sizes ) {
+function fp_custom_sizes( $sizes ) {
 	return array_merge(
 		$sizes,
 		[
-			'fp-small'  => __( 'FP Small', 'foundationpress' ),
-			'fp-medium' => __( 'FP Medium', 'foundationpress' ),
-			'fp-large'  => __( 'FP Large', 'foundationpress' ),
-			'fp-xlarge' => __( 'FP XLarge', 'foundationpress' ),
+			'fp-small'  => __( 'FP Small', FP_TEXTDOMAIN ),
+			'fp-medium' => __( 'FP Medium', FP_TEXTDOMAIN ),
+			'fp-large'  => __( 'FP Large', FP_TEXTDOMAIN ),
+			'fp-xlarge' => __( 'FP XLarge', FP_TEXTDOMAIN ),
 		]
 	);
 }
-add_filter( 'image_size_names_choose', 'foundationpress_custom_sizes' );
+add_filter( 'image_size_names_choose', 'fp_custom_sizes' );
 
 /**
  * Add custom image sizes attribute to enhance responsive image functionality for content images
@@ -46,7 +43,7 @@ add_filter( 'image_size_names_choose', 'foundationpress_custom_sizes' );
  * @param string $sizes responsive image sizes.
  * @param array  $size image size array.
  */
-function foundationpress_adjust_image_sizes_attr( $sizes, $size ) {
+function fp_adjust_image_sizes_attr( $sizes, $size ) {
 
 	// Actual width of image
 	$width = $size[0];
@@ -68,7 +65,7 @@ function foundationpress_adjust_image_sizes_attr( $sizes, $size ) {
 
 	return $sizes;
 }
-add_filter( 'wp_calculate_image_sizes', 'foundationpress_adjust_image_sizes_attr', 10, 2 );
+add_filter( 'wp_calculate_image_sizes', 'fp_adjust_image_sizes_attr', 10, 2 );
 
 /**
  * Remove inline width and height attributes for post thumbnails
@@ -77,10 +74,10 @@ add_filter( 'wp_calculate_image_sizes', 'foundationpress_adjust_image_sizes_attr
  * @param int    $post_id post id.
  * @param int    $post_image_id post image id.
  */
-function foundationpress_remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
+function fp_remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
 	if ( ! strpos( $html, 'attachment-shop_single' ) ) {
 		$html = preg_replace( '/^(width|height)=\"\d*\"\s/', '', $html );
 	}
 	return $html;
 }
-add_filter( 'post_thumbnail_html', 'foundationpress_remove_thumbnail_dimensions', 10, 3 );
+add_filter( 'post_thumbnail_html', 'fp_remove_thumbnail_dimensions', 10, 3 );

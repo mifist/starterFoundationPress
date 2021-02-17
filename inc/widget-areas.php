@@ -2,17 +2,15 @@
 /**
  * Register widget areas
  *
- * @package FoundationPress
- * @since FoundationPress 1.0.0
  */
 
-if ( ! function_exists( 'foundationpress_sidebar_widgets' ) ) :
-	function foundationpress_sidebar_widgets() {
+if ( ! function_exists( 'fp_sidebar_widgets' ) ) :
+	function fp_sidebar_widgets() {
 		register_sidebar(
 			[
 				'id'            => 'sidebar-widgets',
-				'name'          => __( 'Sidebar widgets', 'foundationpress' ),
-				'description'   => __( 'Drag widgets to this sidebar container.', 'foundationpress' ),
+				'name'          => __( 'Sidebar widgets', FP_TEXTDOMAIN ),
+				'description'   => __( 'Drag widgets to this sidebar container.', FP_TEXTDOMAIN ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
 				'before_title'  => '<h6>',
@@ -23,8 +21,8 @@ if ( ! function_exists( 'foundationpress_sidebar_widgets' ) ) :
 		register_sidebar(
 			[
 				'id'            => 'footer-widgets',
-				'name'          => __( 'Footer widgets', 'foundationpress' ),
-				'description'   => __( 'Drag widgets to this footer container', 'foundationpress' ),
+				'name'          => __( 'Footer widgets', FP_TEXTDOMAIN ),
+				'description'   => __( 'Drag widgets to this footer container', FP_TEXTDOMAIN ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
 				'before_title'  => '<h6>',
@@ -33,5 +31,5 @@ if ( ! function_exists( 'foundationpress_sidebar_widgets' ) ) :
 		);
 	}
 
-	add_action( 'widgets_init', 'foundationpress_sidebar_widgets' );
+	add_action( 'widgets_init', 'fp_sidebar_widgets' );
 endif;

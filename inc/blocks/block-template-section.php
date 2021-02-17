@@ -16,10 +16,10 @@ class Block_Template_Section extends Block {
 		acf_register_block_type(
 			[
 				'name'            => self::get_name(),
-				'title'           => __( 'Template Section', 'foundationpress' ),
-				'description'     => __( 'Displays specific section of the current template. Template needs to define a fopr_template_section function.', 'foundationpress' ),
+				'title'           => __( 'Template Section', FP_TEXTDOMAIN ),
+				'description'     => __( 'Displays specific section of the current template. Template needs to define a fopr_template_section function.', FP_TEXTDOMAIN ),
 				'render_template' => 'template-parts/blocks/template-section.php',
-				'category'        => 'foundationpress',
+				'category'        => 'fp_theme',
 				'icon'            => 'admin-tools',
 				'keywords'        => [ 'template' ],
 				'mode'            => 'edit',

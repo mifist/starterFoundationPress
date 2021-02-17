@@ -18,13 +18,13 @@ $fopr_hide_title = get_field( 'hide_title' ) ?: false;
 
 	<div class="entry-content">
 		<?php the_content(); ?>
-		<?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php edit_post_link( __( '(Edit)', FP_TEXTDOMAIN ), '<span class="edit-link">', '</span>' ); ?>
 	</div>
 	<footer>
 		<?php
 		wp_link_pages(
 			[
-				'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ),
+				'before' => '<nav id="page-nav"><p>' . __( 'Pages:', FP_TEXTDOMAIN ),
 				'after'  => '</p></nav>',
 			]
 		);

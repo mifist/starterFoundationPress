@@ -2,12 +2,10 @@
 /**
  * Allow users to select Topbar or Offcanvas menu. Adds body class of offcanvas or topbar based on which they choose.
  *
- * @package FoundationPress
- * @since FoundationPress 1.0.0
  */
 
-if ( ! function_exists( 'foundationpress_register_theme_customizer' ) ) :
-	function foundationpress_register_theme_customizer( $wp_customize ) {
+if ( ! function_exists( 'fp_register_theme_customizer' ) ) :
+	function fp_register_theme_customizer( $wp_customize ) {
 
 		// Create custom panels
 		$wp_customize->add_panel(
@@ -15,8 +13,8 @@ if ( ! function_exists( 'foundationpress_register_theme_customizer' ) ) :
 			[
 				'priority'       => 1000,
 				'theme_supports' => '',
-				'title'          => __( 'Mobile Menu Settings', 'foundationpress' ),
-				'description'    => __( 'Controls the mobile menu', 'foundationpress' ),
+				'title'          => __( 'Mobile Menu Settings', FP_TEXTDOMAIN ),
+				'description'    => __( 'Controls the mobile menu', FP_TEXTDOMAIN ),
 			]
 		);
 
@@ -24,7 +22,7 @@ if ( ! function_exists( 'foundationpress_register_theme_customizer' ) ) :
 		$wp_customize->add_section(
 			'mobile_menu_layout',
 			[
-				'title'    => __( 'Mobile navigation layout', 'foundationpress' ),
+				'title'    => __( 'Mobile navigation layout', FP_TEXTDOMAIN ),
 				'panel'    => 'mobile_menu_settings',
 				'priority' => 1000,
 			]
@@ -32,9 +30,9 @@ if ( ! function_exists( 'foundationpress_register_theme_customizer' ) ) :
 
 		// Set default navigation layout
 		$wp_customize->add_setting(
-			'foundationpress_mobile_menu_layout',
+			'fp_mobile_menu_layout',
 			[
-				'default' => __( 'topbar', 'foundationpress' ),
+				'default' => __( 'topbar', FP_TEXTDOMAIN ),
 			]
 		);
 
@@ -46,7 +44,7 @@ if ( ! function_exists( 'foundationpress_register_theme_customizer' ) ) :
 				[
 					'type'     => 'radio',
 					'section'  => 'mobile_menu_layout',
-					'settings' => 'foundationpress_mobile_menu_layout',
+					'settings' => 'fp_mobile_menu_layout',
 					'choices'  => [
 						'topbar'    => 'Topbar',
 						'offcanvas' => 'Offcanvas',
@@ -56,16 +54,16 @@ if ( ! function_exists( 'foundationpress_register_theme_customizer' ) ) :
 		);
 
 	}
-	add_action( 'customize_register', 'foundationpress_register_theme_customizer' );
+	add_action( 'customize_register', 'fp_register_theme_customizer' );
 endif;
 
-if ( ! function_exists( 'foundationpress_mobile_nav_class' ) ) :
+if ( ! function_exists( 'fp_mobile_nav_class' ) ) :
 	// Add class to body to help w/ CSS
-	add_filter( 'body_class', 'foundationpress_mobile_nav_class' );
-	function foundationpress_mobile_nav_class( $classes ) {
-		if ( ! get_theme_mod( 'foundationpress_mobile_menu_layout' ) || get_theme_mod( 'foundationpress_mobile_menu_layout' ) === 'topbar' ) :
+	add_filter( 'body_class', 'fp_mobile_nav_class' );
+	function fp_mobile_nav_class( $classes ) {
+		if ( ! get_theme_mod( 'fp_mobile_menu_layout' ) || get_theme_mod( 'fp_mobile_menu_layout' ) === 'topbar' ) :
 			$classes[] = 'topbar';
-		elseif ( get_theme_mod( 'foundationpress_mobile_menu_layout' ) === 'offcanvas' ) :
+		elseif ( get_theme_mod( 'fp_mobile_menu_layout' ) === 'offcanvas' ) :
 			$classes[] = 'offcanvas';
 		endif;
 		return $classes;

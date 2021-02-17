@@ -30,7 +30,7 @@ if ( ! class_exists( 'Foundationpress_Comments' ) ) :
 		 * start_lvl() only goes as high as 1 deep nested comments */
 		public function __construct() { ?>
 
-			<h3><?php comments_number( __( 'No Responses to', 'foundationpress' ), __( 'One Response to', 'foundationpress' ), __( '% Responses to', 'foundationpress' ) ); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
+			<h3><?php comments_number( __( 'No Responses to', FP_TEXTDOMAIN ), __( 'One Response to', FP_TEXTDOMAIN ), __( '% Responses to', FP_TEXTDOMAIN ) ); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
 			<ol class="comment-list">
 
 			<?php
@@ -94,7 +94,7 @@ if ( ! class_exists( 'Foundationpress_Comments' ) ) :
 				<section id="comment-content-<?php comment_ID(); ?>" class="comment">
 					<?php if ( ! $comment->comment_approved ) : ?>
 							<div class="notice">
-					<p class="bottom"><?php esc_html_e( 'Your comment is awaiting moderation.', 'foundationpress' ); ?></p>
+					<p class="bottom"><?php esc_html_e( 'Your comment is awaiting moderation.', FP_TEXTDOMAIN ); ?></p>
 				</div>
 						<?php
 					else :

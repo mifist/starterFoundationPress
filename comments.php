@@ -14,7 +14,7 @@ Do not delete these lines.
 Prevent access to this file directly
 */
 
-defined( 'ABSPATH' ) || die( esc_html__( 'Please do not load this page directly. Thanks!', 'foundationpress' ) );
+defined( 'ABSPATH' ) || die( esc_html__( 'Please do not load this page directly. Thanks!', FP_TEXTDOMAIN ) );
 
 if ( have_comments() ) :
 	?>
@@ -28,7 +28,7 @@ if ( have_comments() ) :
 				'callback'          => null,
 				'end-callback'      => null,
 				'type'              => 'all',
-				'reply_text'        => __( 'Reply', 'foundationpress' ),
+				'reply_text'        => __( 'Reply', FP_TEXTDOMAIN ),
 				'page'              => '',
 				'per_page'          => '',
 				'avatar_size'       => 48,
@@ -37,11 +37,11 @@ if ( have_comments() ) :
 				'format'            => 'html5',
 				'short_ping'        => false,
 				'echo'              => true,
-				'moderation'        => __( 'Your comment is awaiting moderation.', 'foundationpress' ),
+				'moderation'        => __( 'Your comment is awaiting moderation.', FP_TEXTDOMAIN ),
 			]
 		);
-
-		foundationpress_the_comments_pagination();
+		
+		fp_the_comments_pagination();
 		?>
 	</section>
 	<?php
@@ -51,7 +51,7 @@ if ( post_password_required() ) {
 	?>
 	<section id="comments">
 		<div class="notice">
-			<p class="bottom"><?php esc_html_e( 'This post is password protected. Enter the password to view comments.', 'foundationpress' ); ?></p>
+			<p class="bottom"><?php esc_html_e( 'This post is password protected. Enter the password to view comments.', FP_TEXTDOMAIN ); ?></p>
 		</div>
 	</section>
 	<?php

@@ -11,7 +11,7 @@
 ?>
 
 <header class="page-header">
-	<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'foundationpress' ); ?></h1>
+	<h1 class="page-title"><?php esc_html_e( 'Nothing Found', FP_TEXTDOMAIN ); ?></h1>
 </header>
 
 <div class="page-content">
@@ -20,10 +20,8 @@
 	<p>
 		<?php
 			printf(
-				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 				/* translators: %1$s: new post url */
-				__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'foundationpress' ),
-				// phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
+				__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', FP_TEXTDOMAIN ),
 				esc_url( admin_url( 'post-new.php' ) )
 			);
 		?>
@@ -31,12 +29,12 @@
 
 	<?php elseif ( is_search() ) : ?>
 
-		<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different 	keywords.', 'foundationpress' ); ?></p>
+		<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', FP_TEXTDOMAIN ); ?></p>
 		<?php get_search_form(); ?>
 
 	<?php else : ?>
 
-		<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can 	help.', 'foundationpress' ); ?></p>
+		<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', FP_TEXTDOMAIN ); ?></p>
 		<?php get_search_form(); ?>
 
 	<?php endif; ?>

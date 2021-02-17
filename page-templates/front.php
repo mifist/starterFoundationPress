@@ -22,7 +22,7 @@ get_header(); ?>
 
 </header>
 
-<?php do_action( 'foundationpress_before_content' ); ?>
+<?php do_action( 'fp_before_content' ); ?>
 <?php
 while ( have_posts() ) :
 	the_post();
@@ -31,7 +31,7 @@ while ( have_posts() ) :
 	<div class="fp-intro">
 
 		<div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-			<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
+			<?php do_action( 'fp_page_before_entry_content' ); ?>
 			<div class="entry-content">
 				<?php the_content(); ?>
 			</div>
@@ -39,23 +39,23 @@ while ( have_posts() ) :
 				<?php
 					wp_link_pages(
 						[
-							'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ),
+							'before' => '<nav id="page-nav"><p>' . __( 'Pages:', FP_TEXTDOMAIN ),
 							'after'  => '</p></nav>',
 						]
 					);
 				?>
 				<p><?php the_tags(); ?></p>
 			</footer>
-			<?php do_action( 'foundationpress_page_before_comments' ); ?>
+			<?php do_action( 'fp_page_before_comments' ); ?>
 			<?php comments_template(); ?>
-			<?php do_action( 'foundationpress_page_after_comments' ); ?>
+			<?php do_action( 'fp_page_after_comments' ); ?>
 		</div>
 
 	</div>
 
 </section>
 <?php endwhile; ?>
-<?php do_action( 'foundationpress_after_content' ); ?>
+<?php do_action( 'fp_after_content' ); ?>
 
 <div class="section-divider">
 	<hr />

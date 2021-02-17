@@ -2,38 +2,37 @@
 /**
  * Add theme support for Gutenberg editor.
  *
- * @package FoundationPress
  */
 
-if ( ! function_exists( 'foundationpress_gutenberg_support' ) ) :
-	function foundationpress_gutenberg_support() {
+if ( ! function_exists( 'fp_gutenberg_support' ) ) :
+	function fp_gutenberg_support() {
 
 		// Add foundation color palette to the editor
 		add_theme_support(
 			'editor-color-palette',
 			[
 				[
-					'name'  => __( 'Primary Color', 'foundationpress' ),
+					'name'  => __( 'Primary Color', FP_TEXTDOMAIN ),
 					'slug'  => 'primary',
 					'color' => '#1779ba',
 				],
 				[
-					'name'  => __( 'Secondary Color', 'foundationpress' ),
+					'name'  => __( 'Secondary Color', FP_TEXTDOMAIN ),
 					'slug'  => 'secondary',
 					'color' => '#767676',
 				],
 				[
-					'name'  => __( 'Success Color', 'foundationpress' ),
+					'name'  => __( 'Success Color', FP_TEXTDOMAIN ),
 					'slug'  => 'success',
 					'color' => '#3adb76',
 				],
 				[
-					'name'  => __( 'Warning color', 'foundationpress' ),
+					'name'  => __( 'Warning color', FP_TEXTDOMAIN ),
 					'slug'  => 'warning',
 					'color' => '#ffae00',
 				],
 				[
-					'name'  => __( 'Alert color', 'foundationpress' ),
+					'name'  => __( 'Alert color', FP_TEXTDOMAIN ),
 					'slug'  => 'alert',
 					'color' => '#cc4b37',
 				],
@@ -42,19 +41,19 @@ if ( ! function_exists( 'foundationpress_gutenberg_support' ) ) :
 
 	}
 
-	add_action( 'after_setup_theme', 'foundationpress_gutenberg_support' );
+	add_action( 'after_setup_theme', 'fp_gutenberg_support' );
 endif;
 
-function foundationpress_block_categories( $categories, $post ) {
+function fp_block_categories( $categories, $post ) {
 	return array_merge(
 		$categories,
 		[
 			[
-				'slug'  => 'foundationpress',
-				'title' => 'FoundationPress',
+				'slug'  => 'fp_theme',
+				'title' => 'FP Theme',
 				'icon'  => 'art',
 			],
 		]
 	);
 }
-add_filter( 'block_categories', 'foundationpress_block_categories', 0, 2 );
+add_filter( 'block_categories', 'fp_block_categories', 0, 2 );

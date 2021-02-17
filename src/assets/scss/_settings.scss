@@ -61,7 +61,9 @@
 //  55. Top Bar
 //  56. Xy Grid
 
-@import '~foundation-sites/scss/util/util';
+@import "./node_modules/foundation-sites/scss/util/util";
+@import 'global/colors';
+@import 'global/fonts';
 
 // 1. Global
 // ---------

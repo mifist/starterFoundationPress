@@ -1,25 +1,26 @@
 <?php
 // Register post type point
-//add_action( 'init', 'ic_register_reviews', 100 );
-function ic_register_reviews() {
-	register_post_type(
-		'reviews',
-		[
+if ( !function_exists( 'fp_register_reviews' ) ) :
+	//add_action( 'init', 'fp_register_reviews', 100 );
+	function fp_register_reviews() {
+		// --------------------------------------
+		$reviews_labels = array(
+			'name'               => 'Reviews',
+			'singular_name'      => 'Review',
+			'add_new'            => 'Add new point',
+			'add_new_item'       => 'Add review',
+			'edit_item'          => 'Edit review',
+			'new_item'           => 'New review',
+			'view_item'          => 'View review',
+			'search_items'       => 'Search review',
+			'not_found'          => 'Not found',
+			'not_found_in_trash' => 'Not found in cart',
+			'parent_item_colon'  => '',
+			'menu_name'          => 'Our Reviews',
+		);
+		$reviews_settings = array(
 			'label'               => null,
-			'labels'              => [
-				'name'               => 'Reviews',
-				'singular_name'      => 'Review',
-				'add_new'            => 'Add new point',
-				'add_new_item'       => 'Add review',
-				'edit_item'          => 'Edit review',
-				'new_item'           => 'New review',
-				'view_item'          => 'View review',
-				'search_items'       => 'Search review',
-				'not_found'          => 'Not found',
-				'not_found_in_trash' => 'Not found in cart',
-				'parent_item_colon'  => '',
-				'menu_name'          => 'Our Reviews',
-			],
+			'labels'              => $reviews_labels,
 			'description'         => '',
 			'public'              => true,
 			'publicly_queryable'  => true,
@@ -33,15 +34,17 @@ function ic_register_reviews() {
 			'menu_position'       => null,
 			'menu_icon'           => 'dashicons-format-status',
 			'capability_type'     => 'post',
-			// 'capabilities'      => 'post',
-			// 'map_meta_cap'      => null,
+			//'capabilities'      => 'post',
+			//'map_meta_cap'      => null,
 			'map_meta_cap'        => true,
 			'hierarchical'        => false,
 			'supports'            => ['title', 'editor', 'thumbnail', 'revisions'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
-			'taxonomies'          => [],
-			'has_archive'         => true,
+			'taxonomies'          => array(),
+			'has_archive'         => false,
 			'rewrite'             => true,
 			'query_var'           => true,
-		]
-	);
-}
+		);
+		register_post_type( 'reviews', $reviews_settings );
+	}
+endif;
+

@@ -110,8 +110,8 @@ function fopr_read_more( $content, $args = [], $echo = true ) {
 
 	$args = array_merge(
 		[
-			'more_text' => __( 'Read more', 'foundationpress' ),
-			'less_text' => __( 'Show less', 'foundationpress' ),
+			'more_text' => __( 'Read more', FP_TEXTDOMAIN ),
+			'less_text' => __( 'Show less', FP_TEXTDOMAIN ),
 		],
 		$args
 	);
@@ -145,3 +145,64 @@ function fopr_read_more( $content, $args = [], $echo = true ) {
 		return ob_get_clean();
 	}
 }
+
+if ( ! function_exists( 'technig_excerpt' ) ) :
+	/** Limit Excerpt Length by number of Words **/
+	function technig_excerpt( $limit ) {
+		$excerpt = explode( ' ', get_the_excerpt(), $limit );
+		if ( count( $excerpt ) >= $limit ) {
+			array_pop( $excerpt );
+			$excerpt = implode( ' ', $excerpt ) . '...';
+		} else {
+			$excerpt = implode( ' ', $excerpt );
+		}
+		$excerpt = preg_replace( '`[[^]]*]`', '', $excerpt );
+		return $excerpt;
+	}
+endif;
+
+if ( ! function_exists( 'technig_content' ) ) :
+	/** Limit Content Length by number of Words **/
+	function technig_content( $limit ) {
+		$content = explode( ' ', get_the_content(), $limit );
+		if ( count( $content ) >= $limit ) {
+			array_pop( $content );
+			$content = implode( ' ', $content ) . '...';
+		} else {
+			$content = implode( ' ', $content );
+		}
+		$content = preg_replace( '/[.+]/', '', $content );
+		$content = apply_filters( 'the_content', $content );
+		$content = str_replace( ']]>', ']]&gt;', $content );
+		return $content;
+	}
+endif;
+
+if ( ! function_exists( 'get_excerpt_trim' ) ) :
+	function get_excerpt_trim($post_id = null, $num_words = 20, $more = '...'){
+		global $post;
+		$post_id = $post_id ? $post_id : $post->ID;
+		$excerpt = get_the_excerpt( $post_id );
+		$excerpt = wp_trim_words( $excerpt, $num_words , $more );
+		return $excerpt;
+	}
+endif;
+
+if ( ! function_exists( 'is_blog' ) ) :
+	/** Check if current page is the Blog Page **/
+	function is_blog() {
+		global $wp_query;
+		$blog_is = false;
+		if ( isset( $wp_query ) && (bool) $wp_query->is_posts_page ) {
+			$blog_is = true;
+		}
+		return $blog_is;
+	}
+endif;
+
+if ( ! function_exists( 'is_front_tmpl' ) ) :
+	/** Check if current page is the Blog Page **/
+	function is_front_tmpl() {
+		return is_page_template('page-templates/front.php');
+	}
+endif;

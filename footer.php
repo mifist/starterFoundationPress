@@ -16,11 +16,11 @@
 		</div>
 
 		<nav class="legal-navigation" role="navigation">
-			<?php foundationpress_footer_legal_nav(); ?>
+			<?php fp_footer_legal_nav(); ?>
 		</nav>
 	</footer>
 
-	<?php if ( get_theme_mod( 'foundationpress_mobile_menu_layout' ) === 'offcanvas' ) : ?>
+	<?php if ( get_theme_mod( 'fp_mobile_menu_layout' ) === 'offcanvas' ) : ?>
 		</div><!-- Close off-canvas content -->
 	<?php endif; ?>
 

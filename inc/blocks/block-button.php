@@ -16,9 +16,9 @@ class Block_Button extends Block {
 		acf_register_block_type(
 			[
 				'name'            => self::get_name(),
-				'title'           => __( 'FP Button', 'foundationpress' ),
+				'title'           => __( 'FP Button', FP_TEXTDOMAIN ),
 				'render_template' => 'template-parts/blocks/button.php',
-				'category'        => 'foundationpress',
+				'category'        => 'fp_theme',
 				'icon'            => 'shield-alt',
 				'keywords'        => [ 'button' ],
 				'supports'        => [

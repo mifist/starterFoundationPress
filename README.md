@@ -13,7 +13,9 @@ Please fork, copy, modify, delete, share or do whatever you like with this.
 
 All contributions are welcome!
 
-Huge thanks to [olefredrik](https://github.com/olefredrik/FoundationPress) (and all contributors) to create the base this starter theme is forked from.
+Huge thanks to [olefredrik](https://github.com/olefredrik/FoundationPress) and [MEDIADUDES](https://github.com
+/MEDIADUDES/FoundationPress) (and all contributors) to create the base
+ this starter theme is forked from.
 
 ## Requirements
 
