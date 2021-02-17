@@ -1,0 +1,28 @@
+@charset 'utf-8';
+
+// Settings.
+@import 'settings';
+
+// All foundation styles and mixins.
+@import 'foundation';
+
+// All mixins.
+@import 'mixins/mixins';
+
+// Global styles.
+@import 'global/global';
+
+// Components.
+@import 'components/components';
+
+// Blocks.
+@import 'blocks/blocks';
+
+//  Modules like Footer, header, Sidebar, Contactform, Menu, etc.
+@import 'modules/modules';
+
+// Page templates.
+@import 'templates/templates';
+
+// Styles for single pages.
+@import 'pages/pages';

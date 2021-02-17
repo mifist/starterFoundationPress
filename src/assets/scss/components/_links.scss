@@ -1,0 +1,8 @@
+// Apply outline styles only when input method is keyboard
+// remove :focus style via What Input using progressive enhancement
+// so :focus isn't left broken if JavaScript fails
+
+a:focus,
+button:focus {
+	@include disable-mouse-outline;
+}

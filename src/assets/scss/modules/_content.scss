@@ -1,0 +1,72 @@
+.main-container {
+	@include xy-grid-container($global-width);
+
+	&--full-width {
+		@include xy-grid-container($padding: 0);
+	}
+}
+
+.main-grid {
+	@include xy-grid();
+
+	&--sidebar-left {
+		// Place the sidebar below main content on small screens ...
+		@include breakpoint(small) {
+			.main-content {
+				order: 1;
+			}
+
+			.sidebar {
+				order: 2;
+			}
+		}
+
+		// ... and to the left on medium-up screens, when using the sidebar-left template
+		@include breakpoint(medium) {
+			.main-content {
+				order: 2;
+
+				&--with-sidebar {
+					@include xy-cell(8, $gutter-position: left);
+				}
+			}
+
+			.sidebar {
+				@include xy-cell(4, $gutter-position: right);
+
+				order: 1;
+			}
+		}
+	}
+}
+
+.main-content {
+	@include xy-cell(full, $gutters: 0);
+
+	&--with-sidebar {
+		@include breakpoint(small) {
+			@include xy-cell(full, $gutters: 0);
+		}
+
+		@include breakpoint(medium) {
+			@include xy-cell(8, $gutter-position: right);
+		}
+	}
+}
+
+/* Use this class to wrap all content in a container of the site width. */
+.container {
+	@include xy-grid-container($global-width);
+}
+
+.sidebar {
+	@include breakpoint(small) {
+		@include xy-cell(full, $gutters: 0);
+
+		margin-top: 1rem;
+	}
+
+	@include breakpoint(medium) {
+		@include xy-cell(4, $gutter-position: left);
+	}
+}

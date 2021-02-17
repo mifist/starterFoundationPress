@@ -1,0 +1,9 @@
+// All styles regarding gutenberg blocks.
+
+@import 'block-accordion';
+@import 'block-button';
+
+// wordpress default block.
+.wp-block-columns {
+	@include xy-grid-container($global-width);
+}
